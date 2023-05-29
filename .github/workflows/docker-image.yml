@@ -9,13 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: get-npm-version
-      id: package-version
-      uses: martinbeentjes/npm-get-version-action@v1.3.1
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: |
-        docker build . --file Dockerfile --tag hsa24:$NPM_VERSION
-      env:
-        NPM_VERSION: ${{ steps.package-version.outputs.current-version }}
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: |
+          docker build . --file Dockerfile --tag hsa24:$NPM_VERSION
+        env:
+          NPM_VERSION: ${{ steps.package-version.outputs.current-version }}
