@@ -15,4 +15,6 @@ jobs:
 
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag hsa24:${{ steps.package-version.outputs.current-version}}
+      run: docker build . --file Dockerfile --tag hsa24:$VERSION
+      env:
+        NPM_VERSION: ${{ steps.package-version.outputs.current-version }}
