@@ -39,15 +39,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
+        <div className={styles.card}>
+          <h2>
+            Welcome to the Highload Software Architecture 8 Lesson 24 Homework<br/>
+            Continuous Deployment
+          </h2>
         </div>
 
         <div className={styles.grid}>
